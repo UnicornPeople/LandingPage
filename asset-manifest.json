@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/skill-coach/static/css/main.c639d4ce.css",
-    "main.js": "/skill-coach/static/js/main.958867e3.js",
+    "main.css": "/skill-coach/static/css/main.aaa2cfcc.css",
+    "main.js": "/skill-coach/static/js/main.cb41e84b.js",
     "static/js/787.d4aba7ab.chunk.js": "/skill-coach/static/js/787.d4aba7ab.chunk.js",
     "static/media/img_home_group.png": "/skill-coach/static/media/img_home_group.6f5b92de353a8a97f256.png",
     "static/media/ic_baemin.png": "/skill-coach/static/media/ic_baemin.b8fafe79268e48902421.png",
     "index.html": "/skill-coach/index.html",
-    "main.c639d4ce.css.map": "/skill-coach/static/css/main.c639d4ce.css.map",
-    "main.958867e3.js.map": "/skill-coach/static/js/main.958867e3.js.map",
+    "main.aaa2cfcc.css.map": "/skill-coach/static/css/main.aaa2cfcc.css.map",
+    "main.cb41e84b.js.map": "/skill-coach/static/js/main.cb41e84b.js.map",
     "787.d4aba7ab.chunk.js.map": "/skill-coach/static/js/787.d4aba7ab.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c639d4ce.css",
-    "static/js/main.958867e3.js"
+    "static/css/main.aaa2cfcc.css",
+    "static/js/main.cb41e84b.js"
   ]
 }
