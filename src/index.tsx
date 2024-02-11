@@ -5,6 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
 import { getAnalytics, logEvent } from "firebase/analytics";
+import * as ChannelService from '@channel.io/channel-web-sdk-loader';
+
+ChannelService.loadScript()
+
+ChannelService.boot({
+  // write your plugin key  
+  "pluginKey":"52bce222-811d-4bb8-9d56-ecff2504be8e",
+});
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
