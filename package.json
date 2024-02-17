@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/skill-coach/#",
+  "homepage": ".",
   "dependencies": {
     "@channel.io/channel-web-sdk-loader": "^1.1.7",
     "@testing-library/jest-dom": "^5.17.0",

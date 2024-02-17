@@ -33,9 +33,7 @@ jobs:
             sudo echo "REACT_APP_STORAGE_BUCKET=${{ secrets.REACT_APP_STORAGE_BUCKET }}" >> ".env.development"
             sudo echo "REACT_APP_MESSAGING_SENDER_ID=${{ secrets.REACT_APP_MESSAGING_SENDER_ID }}" >> ".env.development"
             sudo echo "REACT_APP_MEASUREMENT_IDL=${{ secrets.REACT_APP_MEASUREMENT_IDL }}" >> ".env.development"
-            echo "🚧 Waiting for npm initializaing"
-            sudo rm -rf ./node_modules/ 
-            sudo npm cache clean --force
+            echo "🚧 Waiting for npm initializaing"            
             sudo npm install 
             export NODE_OPTIONS=--max_old_space_size=2048 
             echo "🚧 Start server"
