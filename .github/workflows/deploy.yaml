@@ -1,0 +1,47 @@
+# dev.yml
+name: dev branch auto ci process script
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to checkout'  
+  push:
+    branches: [ develop ]      
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest # 실행될 인스턴스 OS와 버전
+
+    steps:      
+      - name: excuting remote ssh commands
+        uses: appleboy/ssh-action@v0.1.6 # ssh 접속하는 오픈소스
+        with:
+          host: "3.37.89.157" 
+          username: "ubuntu" 
+          key: ${{ secrets.API_SERVER_KEY }} # ec2 instance pem key
+          port: 22
+          script: | # 실행할 스크립트
+            echo "[action]Start deployemnt"
+            cd /home/ubuntu/workspace/frontend/skill-coach
+            echo "[action]Get Code"
+            git pull origin develop
+            echo "[action]Create env"
+            sudo echo "REACT_APP_API_KEY=${{ secrets.REACT_APP_API_KEY }}" > ".env.development"
+            sudo echo "REACT_APP_AUTH_DOMAIN=${{ secrets.REACT_APP_AUTH_DOMAIN }}" >> ".env.development"
+            sudo echo "REACT_APP_ID=${{ secrets.REACT_APP_ID }}" >> ".env.development"
+            sudo echo "REACT_APP_PROJECT_ID=${{ secrets.REACT_APP_PROJECT_ID }}" >> ".env.development"
+            sudo echo "REACT_APP_STORAGE_BUCKET=${{ secrets.REACT_APP_STORAGE_BUCKET }}" >> ".env.development"
+            sudo echo "REACT_APP_MESSAGING_SENDER_ID=${{ secrets.REACT_APP_MESSAGING_SENDER_ID }}" >> ".env.development"
+            sudo echo "REACT_APP_MEASUREMENT_ID=${{ secrets.REACT_APP_MEASUREMENT_ID }}" >> ".env.development"
+            echo "[action]Waiting for npm initializaing"
+            sudo rm -rf ./node_modules/ 
+            sudo npm cache clean --force
+            sudo npm install 
+            export NODE_OPTIONS=--max_old_space_size=2048 
+            echo "[action]Start server"
+            sudo npm start
+
+
+            
