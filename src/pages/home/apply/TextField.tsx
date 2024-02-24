@@ -5,6 +5,7 @@ interface TextFieldProps {
   label: string;
   width?: string;
   height?: string;
+  placeholder?: string;
   value: string;
   onChange: (value: string) => void;
 }
@@ -46,6 +47,7 @@ const TextField: React.FC<TextFieldProps> = ({
   width,
   height,
   value,
+  placeholder,
   onChange,
 }) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -63,6 +65,7 @@ const TextField: React.FC<TextFieldProps> = ({
         onChange={handleChange}
         width={width}
         height={height}
+        placeholder={placeholder}
       />
     </Container>
   );

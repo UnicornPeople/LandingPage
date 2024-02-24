@@ -122,6 +122,13 @@ function ApplySection() {
 
   const [selectedCompanys, setSelectedCompanys] = useState<string[]>([]);
 
+  const koreanPhoneNumberRegex = /^\d{3}-\d{3,4}-\d{4}$/;
+
+  const handlePhoneNumberChange = (value : string) => {
+    const formattedValue = value.replace(/\D/g, '').replace(/(\d{3})(\d{3,4})(\d{4})/, '$1-$2-$3');
+    setPhoneNumber(formattedValue);
+  };
+
   const handleCompanyClick = (option: string) => {
     setSelectedCompanys((prevSelectedOptions) =>
       prevSelectedOptions.includes(option)
@@ -188,14 +195,15 @@ function ApplySection() {
           label="연락처"
           width={isMobile() ? "160px" : "240px"}
           value={phoneNumber}
-          onChange={(value) => setPhoneNumber(value)}
+          placeholder="010-1234-5678, 숫자만 입력하세요."
+          onChange={(value) => handlePhoneNumberChange(value)}
         />
       </InputContainer>
 
       <div
         className={styles.submit}
         onClick={() =>
-          (name.length < 1 || phoneNumber.length < 1) ? alert("정보를 전부 입력 해주세요") : sendMessage(
+          (name.length < 1 || (!koreanPhoneNumberRegex.test(phoneNumber) && phoneNumber.length < 10)) ? alert("올바른 정보를 입력해주세요") : sendMessage(
             buildMessage(selectedCompanys, selectedPositions, name, phoneNumber)
           )
         }
