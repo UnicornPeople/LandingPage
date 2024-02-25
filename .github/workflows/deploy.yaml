@@ -24,7 +24,7 @@ jobs:
             echo "🚧 Start deployemnt"
             cd /home/ubuntu/workspace/frontend/skill-coach
             echo "🚧 Get Code"
-            git reset --hard head
+            git reset --hard "HEAD^"
             git clean -df
             git pull --no-rebase origin develop
             echo "🚧 Create env"
