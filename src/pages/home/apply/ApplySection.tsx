@@ -62,13 +62,14 @@ function buildMessage(
 }
 
 function sendMessage(message: string | undefined) {
+  const currentUrl = window.location.href;
   if (!message) {
     alert("message are required");
     return;
   }
-
+  
   var payload = {
-    content: message,
+    content: "[시스템정보]\n접속 url:"+currentUrl+"\n[신청정보]\n"+message+"\n-----------\n",
   };
 
   fetch(APPLY_DISCORD_WEBHOOK_URL, {
