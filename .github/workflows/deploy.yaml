@@ -24,7 +24,7 @@ jobs:
             echo "🚧 Start deployemnt"
             cd /home/ubuntu/workspace/frontend/skill-coach
             echo "🚧 Get Code"
-            git pull origin develop
+            git pull --no-rebase origin develop
             echo "🚧 Create env"
             sudo echo "REACT_APP_API_KEY=${{ secrets.REACT_APP_API_KEY }}" > ".env.development"
             sudo echo "REACT_APP_AUTH_DOMAIN=${{ secrets.REACT_APP_AUTH_DOMAIN }}" >> ".env.development"
