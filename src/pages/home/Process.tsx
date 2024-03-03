@@ -2,6 +2,7 @@ import styles from "./Process.module.scss";
 import ic_email from "../../resources/ic_email.png";
 import ic_calendar from "../../resources/ic_calendar.png";
 import ic_feedback from "../../resources/ic_feedback.png";
+import { Spacer } from "../../components/Spacer";
 
 function Process() {
   const title = "진행 과정";
@@ -18,12 +19,12 @@ function Process() {
     "실무 모의 면접을 진행하고 강점을 드러낼 수 있는 피드백을 받아요.";
   return (
     <div className={styles.main}>
-      <div className={styles.h100} />
-      <div className={styles.h62} />
+      <Spacer height="100px"/>
+      <Spacer height="62px"/>
       <div className={styles.title}>{title}</div>
-      <div className={styles.h27} />
+      <Spacer height="27px"/>
       <div className={styles.subtitle}>{subtitle}</div>
-      <div className={styles.h40} />
+      <Spacer height="40px"/>
 
       <div className={styles.card_section}>
         <div className={styles.card}>
@@ -32,35 +33,35 @@ function Process() {
             <div className={styles.title}>{card_1_title}</div>
           </div>
 
-          <div className={styles.h5} />
+          <Spacer height="5px"/>
           <div className={styles.content}>{card_1_content}</div>
         </div>
 
-        <div className={styles.h25} />
+        <Spacer height="25px"/>
 
         <div className={styles.card}>
           <div className={styles.title_section}>
             <img className={styles.title_image} src={ic_calendar} alt="icon" />
             <div className={styles.title}>{card_2_title}</div>
           </div>
-          <div className={styles.h5} />
+          <Spacer height="5px"/>
           <div className={styles.content}>{card_2_content}</div>
         </div>
 
-        <div className={styles.h25} />
+        <Spacer height="25px"/>
 
         <div className={styles.card}>
           <div className={styles.title_section}>
             <img className={styles.title_image} src={ic_feedback} alt="icon" />
             <div className={styles.title}>{card_3_title}</div>
           </div>
-          <div className={styles.h5} />
+          <Spacer height="5px"/>
           <div className={styles.content}>{card_3_content}</div>
         </div>
       </div>
 
-      <div className={styles.h62} />
-      <div className={styles.h100} />
+      <Spacer height="62px"/>
+      <Spacer height="100px"/>
     </div>
   );
 }

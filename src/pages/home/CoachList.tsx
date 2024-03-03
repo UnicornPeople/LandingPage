@@ -31,6 +31,11 @@ const CoachParentContainer = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 14px;
     column-gap: 10px;
+
+      /* 모바일 스타일 */
+  @media only screen and (max-width: 767px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const CoachContainer = styled.div`
@@ -67,6 +72,7 @@ const CoachContainer = styled.div`
 
     div.positions {
         display : flex;
+        flex-wrap : wrap;
         gap : 5px;
     }
 `;
