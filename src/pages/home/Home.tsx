@@ -1,5 +1,5 @@
 import Footer from "./Footer";
-import CoachList from "./CoachList";
+import CompanyList from "./CompanyList";
 import Header from "./Header";
 import Info from "./Info";
 import Process from "./Process";
@@ -7,6 +7,7 @@ import ReviewSection from "./ReviewSection";
 import ApplySection from "./apply/ApplySection";
 import { styled } from "styled-components";
 import { Spacer } from "../../components/Spacer";
+import CoachList from "./CoachList";
 
 const Container = styled.div`
   background-color: #181818;
@@ -21,8 +22,9 @@ function Home() {
       <Info />
       <ApplySection />
       <Process />
-      <CoachList />
+      <CompanyList />
       <Spacer height="100px" />
+      <CoachList/>
       <ReviewSection />
       <Spacer height="100px" />
       <Footer />
