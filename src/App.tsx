@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import Home from "./pages/home/Home";
 import Form from "./pages/form/Form";
+import Forms from "./pages/forms/Forms";
 import { useEffect } from "react";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/form' element={<Form />} />
+        <Route path='/forms/:name' element={<Forms />} />
         <Route path='*' element={<Home />} />
       </Routes>
     </BrowserRouter>
