@@ -2,7 +2,7 @@ import styles from "./Header.module.scss";
 import headerlogo from "../../resources/logo_dark.png";
 import headerMenuImage from "../../resources/img_home_header_menu.png";
 import isMobile from "../../utils/CommonUtils";
-import { APPLY_GUIDE_LINK, INTERVIEWER_GUIDE_LINK, QA_LINK } from "../../Const";
+import { APPLY_GUIDE_LINK, INTERVIEWER_GUIDE_LINK } from "../../Const";
 import { getAnalytics, logEvent } from "firebase/analytics";
 import { useState } from "react";
 
@@ -25,7 +25,7 @@ const MenuList = () => {
     const analytics = getAnalytics();
     logEvent(analytics, "home_header_kakaotalk_qa_click", {});
 
-    window.open(QA_LINK, "_blank");
+    window.ChannelIO('showMessenger');
   };
 
   return (
