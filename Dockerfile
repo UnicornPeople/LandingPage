@@ -1,7 +1,7 @@
 FROM node:20.8.1
 
 WORKDIR /usr/src
-COPY ./* /usr/src
+COPY . /usr/src
 
 RUN yarn global add serve
 
