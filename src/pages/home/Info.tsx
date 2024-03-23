@@ -1,5 +1,5 @@
 import styles from "./Info.module.scss";
-import image_group from "../../resources/img_home_group.png";
+import image_group from "../../resources/img_home_group.webp";
 import { applyBoldStyle } from "../../utils/StringUtils";
 import { getAnalytics, logEvent } from "firebase/analytics";
 
