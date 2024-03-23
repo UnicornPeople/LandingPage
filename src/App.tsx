@@ -10,18 +10,18 @@ function App() {
   useEffect(() => {
     const currentUrl = new URL(window.location.href);
     console.log(currentUrl);
-    if(currentUrl.host.startsWith("unicornpeople.github.io")) {
+    if (currentUrl.host.startsWith("unicornpeople.github.io")) {
       window.location.href = "https://www.skillcoach.co.kr"
     }
 
   });
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/form' element={<Form />} />
         <Route path='/forms/:name' element={<Forms />} />
-        <Route path='*' element={<Home />} />
+        <Route path='/*' element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
