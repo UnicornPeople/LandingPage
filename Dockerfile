@@ -5,6 +5,7 @@ COPY . /usr/src
 
 RUN yarn global add serve
 
+RUN npm config delete proxy
 RUN npm install
 RUN npm run build
 
