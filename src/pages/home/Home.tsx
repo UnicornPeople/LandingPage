@@ -1,4 +1,4 @@
-import Footer from "./Footer";
+import PriceSection from "./PriceSection";
 import CompanyList from "./CompanyList";
 import Header from "./Header";
 import Info from "./Info";
@@ -27,7 +27,7 @@ function Home() {
       <CoachList/>
       <ReviewSection />
       <Spacer height="100px" />
-      <Footer />
+      <PriceSection />
       <Spacer height="100px" />
     </Container>
   );
