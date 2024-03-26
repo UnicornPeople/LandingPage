@@ -18,7 +18,6 @@ function Home() {
     <Container>
       <Header />
       <Spacer height="120px" />
-      <Spacer height="35px" />
       <Info />
       <ApplySection />
       <Process />
