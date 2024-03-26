@@ -27,7 +27,7 @@ function CompanyList() {
     <div className={styles.main}>
       <div className={styles.title}>{applyBoldStyle(title)}</div>
       <div className={styles.subtitle}>{subtitle}</div>
-      <Spacer height="50px"/>
+      <Spacer height="52px"/>
       {isMobile() ? (
         <div>
           <div className={styles.company_section}>
@@ -35,13 +35,13 @@ function CompanyList() {
             <img src={ic_kakao} alt="icon" />
             <img src={ic_line} alt="icon" />
           </div>
-          <Spacer height="29px"/>
+          <Spacer height="28px"/>
           <div className={styles.company_section}>
             <img src={ic_coupang} alt="icon" />
             <img src={ic_baemin} alt="icon" />
             <img src={ic_carrot} alt="icon" />
           </div>
-          <Spacer height="29px"/>
+          <Spacer height="28px"/>
           <div className={styles.company_section}>
             <img src={ic_toss} alt="icon" />
           </div>
@@ -58,7 +58,7 @@ function CompanyList() {
         </div>
       )}
 
-      <Spacer height="50px"/>
+      <Spacer height="52px"/>
 
       <div className={styles.coach_btn} onClick={onNavigateCoachListClick}>{coach_btn}</div>
     </div>

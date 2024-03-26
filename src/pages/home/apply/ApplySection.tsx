@@ -11,10 +11,17 @@ const StyledH1 = styled.h1`
   color: #f0eff3;
   font-size: 32px;
   line-height: 36px;
+  padding-left : 20px;
+  padding-right: 20px;
   margin-top: 40px;
   margin-bottom: 40px;
   position: relative;
   text-align: center;
+
+    /* 모바일 스타일 */
+  @media only screen and (max-width: 767px) {
+    font-size : 30px;
+  }
 `;
 
 const Container = styled.div`

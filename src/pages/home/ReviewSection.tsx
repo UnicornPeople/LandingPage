@@ -1,12 +1,13 @@
 import styles from "./ReviewSection.module.scss";
 import isMobile from "../../utils/CommonUtils";
+import { Spacer } from "../../components/Spacer";
 
 function ReviewSection() {
   const title = "모의 면접 후기";
   return (
     <div className={styles.main}>
       <div className={styles.title}>{title}</div>
-      <div className={styles.h50} />
+      <Spacer height="48px"/>
       {isMobile() ? (
         <div className={styles.review_container}>
           <div className={styles.review}>

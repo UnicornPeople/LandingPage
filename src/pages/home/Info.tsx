@@ -3,6 +3,7 @@ import { getAnalytics, logEvent } from "firebase/analytics";
 import { styled } from "styled-components";
 import backgroundImg from "../../resources/info_section_bg.png";
 import { Spacer } from "../../components/Spacer";
+import isMobile from "../../utils/CommonUtils";
 
 const Main = styled.div`
   width: 100%;
@@ -64,14 +65,10 @@ const DivContentsContainer = styled.div`
   @media only screen and (max-width: 767px) {
     div.title {
       font-size: 30px;
-      font-weight: bold;
-      color: #ffffff;
     }
 
     div.subtitle {
       font-size: 16px;
-      font-weight: bold;
-      color: #c4c4c4;
     }
   }
 `;
@@ -111,15 +108,27 @@ function Info() {
   return (
     <Main>
       <MainBlur />
-      <DivContentsContainer>
-        <div className="title">{applyBoldStyle(title)}</div>
+      {isMobile() ? (
+        <DivContentsContainer>
+          <div className="title">{applyBoldStyle(title)}</div>
 
-        <div className="subtitle">{subtitle}</div>
+          <div className="subtitle">{subtitle}</div>
 
-        <Spacer height="56px" />
+          <Spacer height="28px" />
 
-        <BtnApply onClick={onApplyClick}>지금 신청하기</BtnApply>
-      </DivContentsContainer>
+          <BtnApply onClick={onApplyClick}>지금 신청하기</BtnApply>
+        </DivContentsContainer>
+      ) : (
+        <DivContentsContainer>
+          <div className="title">{applyBoldStyle(title)}</div>
+
+          <div className="subtitle">{subtitle}</div>
+
+          <Spacer height="56px" />
+
+          <BtnApply onClick={onApplyClick}>지금 신청하기</BtnApply>
+        </DivContentsContainer>
+      )}
     </Main>
   );
 }
