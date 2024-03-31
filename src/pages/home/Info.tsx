@@ -1,7 +1,7 @@
 import { applyBoldStyle } from "../../utils/StringUtils";
 import { getAnalytics, logEvent } from "firebase/analytics";
 import { styled } from "styled-components";
-import backgroundImg from "../../resources/info_section_bg.png";
+import backgroundImg from "../../resources/info_section_bg.webp";
 import { Spacer } from "../../components/Spacer";
 import isMobile from "../../utils/CommonUtils";
 
