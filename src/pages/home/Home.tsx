@@ -8,6 +8,7 @@ import ApplySection from "./apply/ApplySection";
 import { styled } from "styled-components";
 import { Spacer } from "../../components/Spacer";
 import CoachList from "./CoachList";
+import BizInfo from "./BizInfo";
 
 const Container = styled.div`
   background-color: #181818;
@@ -27,7 +28,7 @@ function Home() {
       <ReviewSection />
       <Spacer height="100px" />
       <PriceSection />
-      <Spacer height="100px" />
+      <BizInfo />
     </Container>
   );
 }
