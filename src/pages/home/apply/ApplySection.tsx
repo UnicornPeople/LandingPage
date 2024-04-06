@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { Spacer } from "../../../components/Spacer";
 import SelectableButton from "./SelectableButton";
 import isMobile from "../../../utils/CommonUtils";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 const StyledH1 = styled.h1`
   color: #f0eff3;
@@ -74,9 +75,9 @@ function sendMessage(message: string | undefined) {
     alert("message are required");
     return;
   }
-  
+
   var payload = {
-    content: "[시스템정보]\n접속 url:"+currentUrl+"\n[신청정보]\n"+message+"\n-----------\n",
+    content: "[시스템정보]\n접속 url:" + currentUrl + "\n[신청정보]\n" + message + "\n-----------\n",
   };
 
   fetch(APPLY_DISCORD_WEBHOOK_URL, {
@@ -132,7 +133,21 @@ function ApplySection() {
 
   const koreanPhoneNumberRegex = /^\d{3}-\d{3,4}-\d{4}$/;
 
-  const handlePhoneNumberChange = (value : string) => {
+  const onSubmitClick = () => {
+    const analytics = getAnalytics();
+
+    if (name.length < 1 || (!koreanPhoneNumberRegex.test(phoneNumber) && phoneNumber.length < 10)) {
+      alert("올바른 정보를 입력해주세요")
+      logEvent(analytics, "home_apply_submit_click_not_valid", {});
+    } else {
+      sendMessage(
+        buildMessage(selectedCompanys, selectedPositions, name, phoneNumber)
+      )
+      logEvent(analytics, "home_apply_submit_click", {});
+    }
+  }
+
+  const handlePhoneNumberChange = (value: string) => {
     const formattedValue = value.replace(/\D/g, '').replace(/(\d{3})(\d{3,4})(\d{4})/, '$1-$2-$3');
     setPhoneNumber(formattedValue);
   };
@@ -210,11 +225,7 @@ function ApplySection() {
 
       <div
         className={styles.submit}
-        onClick={() =>
-          (name.length < 1 || (!koreanPhoneNumberRegex.test(phoneNumber) && phoneNumber.length < 10)) ? alert("올바른 정보를 입력해주세요") : sendMessage(
-            buildMessage(selectedCompanys, selectedPositions, name, phoneNumber)
-          )
-        }
+        onClick={() => onSubmitClick()}
       >
         신청하기
       </div>
