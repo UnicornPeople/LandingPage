@@ -8,7 +8,6 @@ RUN apt-get -y install gconf-service libasound2 libatk1.0-0 libatk-bridge2.0-0 l
 RUN yarn global add serve
 
 RUN npm config delete proxy
-RUN npm cache clear --force
 
 RUN npm install
 RUN npm run build
