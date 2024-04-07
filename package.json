@@ -59,8 +59,9 @@
   },
   "reactSnap": {
     "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox", "--disable-gpu"],
-    "concurrency": 1,
-    "inlineCss": false,
-    "ignorePageErrors": true
+    "ignorePageErrors": true,
+    "include": ["/"],
+    "skipThirdPartyRequests": true,
+    "preconnectThirdParty": true
   }
 }
