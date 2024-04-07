@@ -58,9 +58,9 @@
     "gh-pages": "^6.1.1"
   },
   "reactSnap": {
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox", "--disable-gpu"],
     "concurrency": 1,
     "inlineCss": false,
-    "puppeteerExecutablePath": "/usr/bin/google-chrome-unstable"
+    "puppeteerExecutablePath": "/usr/bin/chromium-browser"
   }
 }
