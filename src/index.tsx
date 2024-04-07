@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
 import { getAnalytics, logEvent } from "firebase/analytics";
 import * as ChannelService from '@channel.io/channel-web-sdk-loader';
+import { hydrate, render } from 'react-dom';
 
 ChannelService.loadScript()
 
@@ -33,15 +34,23 @@ logEvent(analytics, 'ref_utm_source', {
   content_id: utmSource
 });
 
+const container = document.getElementById('root') as HTMLElement;
+const root = ReactDOM.createRoot(container);
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+if (container.hasChildNodes()) {
+  ReactDOM.hydrateRoot(
+    container,
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+} else {
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

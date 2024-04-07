@@ -2,7 +2,6 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
   "dependencies": {
     "@channel.io/channel-web-sdk-loader": "^1.1.7",
     "@testing-library/jest-dom": "^5.17.0",
@@ -20,6 +19,7 @@
     "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
     "react-scroll": "^1.9.0",
+    "react-snap": "^1.23.0",
     "sass": "^1.69.5",
     "serve": "^14.2.1",
     "styled-components": "^6.1.8",
@@ -28,7 +28,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "postbuild": "cp build/index.html build/404.html",
+    "postbuild": "react-snap",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
