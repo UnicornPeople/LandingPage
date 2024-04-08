@@ -89,7 +89,7 @@ function sendMessage(message: string | undefined) {
   })
     .then((response) => {
       if (response.ok) {
-        alert("신청해주셔서 감사합니다.\n1~2일 내에 연락드리겠습니다.");
+        alert("지원자분과 맞는 코치들을 모아\n1~2일 내에 연락드리겠습니다.");
       } else {
         alert("Failed to send message");
       }
@@ -227,7 +227,7 @@ function ApplySection() {
         className={styles.submit}
         onClick={() => onSubmitClick()}
       >
-        신청하기
+        코치 리스트 조회하기
       </div>
     </Container>
   );
