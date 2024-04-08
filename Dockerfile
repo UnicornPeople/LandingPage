@@ -23,6 +23,9 @@ RUN curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-ke
 
 RUN npm config delete proxy
 
+RUN npm config set fetch-retry-maxtimeout 120000
+RUN npm config set fetch-retry-mintimeout 120000
+
 RUN npm install
 RUN npm run build
 
