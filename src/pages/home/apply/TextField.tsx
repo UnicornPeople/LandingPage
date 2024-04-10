@@ -11,20 +11,22 @@ interface TextFieldProps {
 }
 
 const Container = styled.div`
+  width: 600px;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 24px;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 10px;
 
   /* 모바일 스타일 */
   @media only screen and (max-width: 767px) {
-    width: auto;
+    width: 500px;
   }
 `;
 
 const StyledLabel = styled.label`
   font-weight: bold;
-  width: 80px;
+  width: 100px;
   color: white;
 
   /* 모바일 스타일 */
@@ -34,12 +36,18 @@ const StyledLabel = styled.label`
 `;
 
 const StyledInput = styled.input<{ width?: string; height?: string }>`
-  border: 1px solid #0074e4;
-  border-radius: 4px;
-  padding: 8px;
-  color: black;
   width: ${({ width }) => width || "auto"};
   height: ${({ height }) => height || "auto"};
+  padding: 6px 12px;
+  background: rgb(31, 32, 35);
+  border: 1px solid rgb(60, 63, 68);
+  border-radius: 4px;
+  font-size: 13px;
+  color: rgb(247, 248, 248);
+  height: 46px;
+  appearance: none;
+  transition: border 0.15s ease 0s;
+  flex-grow: 1;
 `;
 
 const TextField: React.FC<TextFieldProps> = ({

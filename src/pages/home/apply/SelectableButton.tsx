@@ -21,7 +21,7 @@ const SelectableButtonWrapper = styled.div<{ isSelected: boolean }>`
   user-select: none;
   cursor: pointer;
   background-color: ${({ isSelected }) => (isSelected ? "#0074e4" : "#303030")};
-
+  font-weight: ${({ isSelected }) => (isSelected ? 500 : 400)};
   &:hover {
     background-color: #6ea8df;
   }
