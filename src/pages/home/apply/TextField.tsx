@@ -20,7 +20,7 @@ const Container = styled.div`
 
   /* 모바일 스타일 */
   @media only screen and (max-width: 767px) {
-    width: 350px;
+    width: 280px;
   }
 `;
 
