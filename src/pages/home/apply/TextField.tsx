@@ -11,7 +11,7 @@ interface TextFieldProps {
 }
 
 const Container = styled.div`
-  width: 600px;
+  width: 500px;
   margin-left: 12px;
   margin-right: 12px;
   margin-top: 24px;
@@ -20,7 +20,7 @@ const Container = styled.div`
 
   /* 모바일 스타일 */
   @media only screen and (max-width: 767px) {
-    width: 500px;
+    width: 350px;
   }
 `;
 

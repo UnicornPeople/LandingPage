@@ -37,7 +37,7 @@
     box-shadow: 0 0 0 0.15rem #5ceace;
   }
   @media only screen and (max-width: 767px) {
-    width: 500px;
+    width: 350px;
   }
 }
 
@@ -87,6 +87,7 @@ h2 {
   font-size: 15px;
   transition: 0.5s;
   user-select: none;
+  font-weight: 400;
 
   &:hover {
     background-color: #6ea8df;
@@ -95,6 +96,7 @@ h2 {
 
 .iconBoxChecked {
   background-color: #0074e4;
+  font-weight: 500;
 }
 
 .companyLogo {

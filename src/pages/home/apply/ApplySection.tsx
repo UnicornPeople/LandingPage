@@ -51,10 +51,11 @@ const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 600px;
 
   /* 모바일 스타일 */
   @media only screen and (max-width: 767px) {
-    width: auto;
+    width: 400px;
   }
 `;
 
@@ -233,7 +234,7 @@ function ApplySection() {
     <Container id="applyForm">
 
       <Spacer height="48px" />
-      <StyledH1>다니고 싶은 회사를 모두 선택해주세요</StyledH1>
+      <StyledH1>다니고 싶은 회사를 {isMobile() ? <br/> : ""}모두 선택해주세요</StyledH1>
 
       <div className={styles.position_container}>
         {
@@ -254,7 +255,7 @@ function ApplySection() {
       </div>
 
       <Spacer height="48px" />
-      <StyledH1>고민중인 포지션을 모두 골라주세요</StyledH1>
+      <StyledH1>고민중인 포지션을 {isMobile() ? <br/> : ""}모두 골라주세요</StyledH1>
 
       <div className={styles.position_container}>
         {positions.map((position) => (
@@ -281,7 +282,7 @@ function ApplySection() {
         <Spacer height="24px" />
         <TextField
           label="연락처"
-          width={isMobile() ? "160px" : "240px"}
+          width={isMobile() ? "160px" : "auto"}
           value={phoneNumber}
           placeholder="010-1234-5678, 숫자만 입력하세요."
           onChange={(value) => handlePhoneNumberChange(value)}
