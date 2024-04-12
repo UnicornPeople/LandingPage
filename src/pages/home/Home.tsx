@@ -13,7 +13,6 @@ import Sponsor from "./Sponsor";
 import { useLocation } from "react-router-dom";
 import saveKakaoAccessToken from "./usecase/SaveKakaoAccessToken";
 import getKakaoAccessToken from "./usecase/GetKakakoAccessToken";
-import { KAKAO_ACCESS_TOKEN_KEY } from "../../Const";
 
 const Container = styled.div`
   background-color: #181818;
@@ -24,7 +23,7 @@ function Home() {
 
   if (location.pathname === "/login/success") {
     const searchParams = new URLSearchParams(location.search);
-    const accessToken = searchParams.get(KAKAO_ACCESS_TOKEN_KEY);
+    const accessToken = searchParams.get("accessToken");
 
     saveKakaoAccessToken(accessToken);
   }
