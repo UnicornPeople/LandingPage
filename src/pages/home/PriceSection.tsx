@@ -66,7 +66,7 @@ const BtnApply = styled.div`
   }
 `;
 
-const DivDesktopContainer = styled.div`
+const DivContentsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,7 +165,7 @@ function PriceSection() {
     <Main>
       <MainBlur />
       {isMobile() ? (
-        <DivDesktopContainer>
+        <DivContentsContainer>
           <Spacer height="40px" />
           <div className="title">{title}</div>
           <Spacer height="20px" />
@@ -185,9 +185,9 @@ function PriceSection() {
           <Spacer height="16px" />
           <BtnApply onClick={onApplyClick}>지금 신청하기</BtnApply>
           <Spacer height="40px" />
-        </DivDesktopContainer>
+        </DivContentsContainer>
       ) : (
-        <DivDesktopContainer>
+        <DivContentsContainer>
           <Spacer height="80px" />
           <div className="title">{title}</div>
           <Spacer height="40px" />
@@ -208,7 +208,7 @@ function PriceSection() {
           <Spacer height="32px" />
           <BtnApply onClick={onApplyClick}>지금 신청하기</BtnApply>
           <Spacer height="80px" />
-        </DivDesktopContainer>
+        </DivContentsContainer>
       )}
     </Main>
   );
