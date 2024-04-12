@@ -16,6 +16,8 @@ const MainContainer = styled.div`
   align-items: center;
   flex-direction: column;
   scroll-margin-top: 120px;
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 
 const Title = styled.div`
