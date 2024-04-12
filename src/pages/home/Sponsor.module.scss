@@ -10,7 +10,11 @@
     text-align: center;
     color: white;
     line-height: 45px;
-    ;
+    
+    /* 모바일 스타일 */
+    @media only screen and (max-width: 767px) {
+        font-size: 20px;
+    }
 }
 
 .block__img_container {
@@ -20,4 +24,10 @@
     align-items: center;
     margin-top: 40px;
     justify-content: center;
+
+
+    /* 모바일 스타일 */
+    @media only screen and (max-width: 767px) {
+        flex-direction: column;
+    }
 }
