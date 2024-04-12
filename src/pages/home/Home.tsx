@@ -9,6 +9,7 @@ import { styled } from "styled-components";
 import { Spacer } from "../../components/Spacer";
 import CoachList from "./CoachList";
 import BizInfo from "./BizInfo";
+import Sponsor from "./Sponsor";
 
 const Container = styled.div`
   background-color: #181818;
@@ -26,6 +27,7 @@ function Home() {
       <Spacer height="100px" />
       <CoachList/>
       <ReviewSection />
+      <Sponsor />
       <Spacer height="100px" />
       <PriceSection />
       <BizInfo />
