@@ -2,11 +2,12 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import Home from "./pages/home/Home";
-import Form from "./pages/form/Form";
-import Forms from "./pages/forms/Forms";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import ogImg from "./resources/og.png";
+import CompanyPage from "./pages/company/CompanyPage";
+import CompanyDetailPage from "./pages/company/CompanyDetailPage";
+import GlobalStyle from "./GlobalStyle";
 
 function App() {
   useEffect(() => {
@@ -17,7 +18,8 @@ function App() {
     }
   });
   return (
-    <div>
+    <>
+      <GlobalStyle />
       <Helmet>
         <meta charSet="utf-8" />
 
@@ -47,18 +49,16 @@ function App() {
         <meta property="og:image" content={ogImg} />
         <meta property="og:url" content="https://skillcoach.co.kr" />
       </Helmet>
-      <div>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/form" element={<Form />} />
-            <Route path="/login/success" element={<Home />} />
-            <Route path="/forms/:name" element={<Forms />} />
-            <Route path="/*" element={<Home />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login/success" element={<Home />} />
+          <Route path="/company" element={<CompanyPage />} />
+          <Route path="/company/:key" element={<CompanyDetailPage />} />
+          <Route path="/*" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 

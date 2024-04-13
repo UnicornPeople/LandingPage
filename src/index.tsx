@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import "./fonts/Font.css";
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
 import { getAnalytics, logEvent } from "firebase/analytics";
 import * as ChannelService from '@channel.io/channel-web-sdk-loader';
-import { hydrate, render } from 'react-dom';
 import * as Sentry from "@sentry/react";
 
 ChannelService.loadScript()

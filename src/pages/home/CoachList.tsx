@@ -55,6 +55,7 @@ const CoachContainer = styled.div`
   div.title {
     font-size: 14px;
     color: #000000;
+    font-weight : 500;
   }
 
   div.coach_info {
