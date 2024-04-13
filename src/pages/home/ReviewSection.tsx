@@ -1,6 +1,6 @@
 import styles from "./ReviewSection.module.scss";
-import isMobile from "../../utils/CommonUtils";
 import { Spacer } from "../../components/Spacer";
+import { isMobile } from "../../utils/CommonUtils";
 
 function ReviewSection() {
   const title = "모의 면접 후기";

@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { mobileMediaQuery } from "../../../utils/CommonUtils";
 
 interface TextFieldProps {
   label: string;
@@ -18,10 +19,9 @@ const Container = styled.div`
   display: flex;
   align-items: center;
 
-  /* 모바일 스타일 */
-  @media only screen and (max-width: 767px) {
+  ${mobileMediaQuery(css`
     width: 280px;
-  }
+  `)}
 `;
 
 const StyledLabel = styled.label`
@@ -29,10 +29,9 @@ const StyledLabel = styled.label`
   width: 100px;
   color: white;
 
-  /* 모바일 스타일 */
-  @media only screen and (max-width: 767px) {
+  ${mobileMediaQuery(css`
     width: 60px;
-  }
+  `)}
 `;
 
 const StyledInput = styled.input<{ width?: string; height?: string }>`

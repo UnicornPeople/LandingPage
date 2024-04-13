@@ -1,11 +1,10 @@
-import { styled } from "styled-components";
-import isMobile from "../../utils/CommonUtils";
-import { applyBoldStyle } from "../../utils/StringUtils";
+import { css, styled } from "styled-components";
 import { getAnalytics, logEvent } from "firebase/analytics";
 import backgroundImg from "../../resources/price_section_bg.png";
 import { Spacer } from "../../components/Spacer";
+import { isMobile, mobileMediaQuery } from "../../utils/CommonUtils";
 
-const Main = styled.div`
+const Container = styled.div`
   width: 100%;
   height: auto;
   background-image: url(${backgroundImg});
@@ -16,14 +15,13 @@ const Main = styled.div`
   justify-content: center;
   position: relative;
 
-  /* 모바일 스타일 */
-  @media only screen and (max-width: 767px) {
+  ${mobileMediaQuery(css`
     padding-top: 0px;
     padding-bottom: 0px;
 
     display: flex;
     justify-content: center;
-  }
+  `)}
 `;
 
 const MainBlur = styled.div`
@@ -162,7 +160,7 @@ function PriceSection() {
   };
 
   return (
-    <Main>
+    <Container>
       <MainBlur />
       {isMobile() ? (
         <DivContentsContainer>
@@ -210,7 +208,7 @@ function PriceSection() {
           <Spacer height="80px" />
         </DivContentsContainer>
       )}
-    </Main>
+    </Container>
   );
 }
 

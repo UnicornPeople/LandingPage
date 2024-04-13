@@ -1,9 +1,9 @@
 import { applyBoldStyle } from "../../utils/StringUtils";
 import { getAnalytics, logEvent } from "firebase/analytics";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import backgroundImg from "../../resources/info_section_bg.webp";
 import { Spacer } from "../../components/Spacer";
-import isMobile from "../../utils/CommonUtils";
+import { isMobile, mobileMediaQuery } from "../../utils/CommonUtils";
 
 const Main = styled.div`
   width: 100%;
@@ -19,14 +19,12 @@ const Main = styled.div`
   padding-top: 200px;
   padding-bottom: 240px;
 
-  /* 모바일 스타일 */
-  @media only screen and (max-width: 767px) {
+  ${mobileMediaQuery(css`
     padding-top: 100px;
     padding-bottom: 120px;
-
     display: flex;
     justify-content: center;
-  }
+  `)}
 `;
 
 const MainBlur = styled.div`
@@ -61,8 +59,7 @@ const DivContentsContainer = styled.div`
     text-align: center;
   }
 
-  /* 모바일 스타일 */
-  @media only screen and (max-width: 767px) {
+  ${mobileMediaQuery(css`
     div.title {
       font-size: 30px;
     }
@@ -70,7 +67,7 @@ const DivContentsContainer = styled.div`
     div.subtitle {
       font-size: 16px;
     }
-  }
+  `)}
 `;
 
 const BtnApply = styled.div`

@@ -5,7 +5,7 @@ import TextField from "./TextField";
 import styled from "styled-components";
 import { Spacer } from "../../../components/Spacer";
 import SelectableButton from "./SelectableButton";
-import isMobile from "../../../utils/CommonUtils";
+import { isMobile } from "../../../utils/CommonUtils";
 import { getAnalytics, logEvent } from "firebase/analytics";
 import ic_naver from "../../../resources/ic_naver.png";
 import ic_kakao from "../../../resources/ic_kakao.png";
@@ -22,16 +22,16 @@ const StyledH1 = styled.h1`
   color: #f0eff3;
   font-size: 32px;
   line-height: 36px;
-  padding-left : 20px;
+  padding-left: 20px;
   padding-right: 20px;
   margin-top: 40px;
   margin-bottom: 40px;
   position: relative;
   text-align: center;
 
-    /* 모바일 스타일 */
+  /* 모바일 스타일 */
   @media only screen and (max-width: 767px) {
-    font-size : 30px;
+    font-size: 30px;
   }
 `;
 
@@ -88,7 +88,12 @@ function sendMessage(message: string | undefined) {
   }
 
   var payload = {
-    content: "[시스템정보]\n접속 url:" + currentUrl + "\n[신청정보]\n" + message + "\n-----------\n",
+    content:
+      "[시스템정보]\n접속 url:" +
+      currentUrl +
+      "\n[신청정보]\n" +
+      message +
+      "\n-----------\n",
   };
 
   fetch(APPLY_DISCORD_WEBHOOK_URL, {
@@ -112,59 +117,58 @@ function sendMessage(message: string | undefined) {
 }
 
 function ApplySection() {
-
   const companyList = [
     {
-      "id": "naver",
-      "name": "네이버",
-      "src": ic_naver
+      id: "naver",
+      name: "네이버",
+      src: ic_naver,
     },
     {
-      "id": "kakao",
-      "name": "카카오",
-      "src": ic_kakao
+      id: "kakao",
+      name: "카카오",
+      src: ic_kakao,
     },
     {
-      "id": "line",
-      "name": "라인",
-      "src": ic_line
+      id: "line",
+      name: "라인",
+      src: ic_line,
     },
     {
-      "id": "coupang",
-      "name": "쿠팡",
-      "src": ic_coupang
+      id: "coupang",
+      name: "쿠팡",
+      src: ic_coupang,
     },
     {
-      "id": "baemin",
-      "name": "배민",
-      "src": ic_baemin
+      id: "baemin",
+      name: "배민",
+      src: ic_baemin,
     },
     {
-      "id": "carrot",
-      "name": "당근",
-      "src": ic_carrot
+      id: "carrot",
+      name: "당근",
+      src: ic_carrot,
     },
     {
-      "id": "toss",
-      "name": "토스",
-      "src": ic_toss
+      id: "toss",
+      name: "토스",
+      src: ic_toss,
     },
     {
-      "id": "samsung",
-      "name": "삼성전자",
-      "src": ic_samsung
+      id: "samsung",
+      name: "삼성전자",
+      src: ic_samsung,
     },
     {
-      "id": "skt",
-      "name": "SKT",
-      "src": ic_skt
+      id: "skt",
+      name: "SKT",
+      src: ic_skt,
     },
     {
-      "id": "hyundai",
-      "name": "현대자동차",
-      "src": ic_hyundai
+      id: "hyundai",
+      name: "현대자동차",
+      src: ic_hyundai,
     },
-  ]
+  ];
 
   const positions = [
     "백엔드",
@@ -179,7 +183,7 @@ function ApplySection() {
 
   const [name, setName] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
-  const [checkedCompanyIds, setCheckedCompanyIds] = useState(new Set)
+  const [checkedCompanyIds, setCheckedCompanyIds] = useState(new Set());
 
   const koreanPhoneNumberRegex = /^\d{3}-\d{3,4}-\d{4}$/;
 
@@ -187,22 +191,29 @@ function ApplySection() {
     const analytics = getAnalytics();
 
     console.log(checkedCompanyIds);
-    if (checkedCompanyIds.size < 1 || name.length < 1 || (!koreanPhoneNumberRegex.test(phoneNumber) && phoneNumber.length < 10)) {
-      alert("올바른 정보를 입력해주세요")
+    if (
+      checkedCompanyIds.size < 1 ||
+      name.length < 1 ||
+      (!koreanPhoneNumberRegex.test(phoneNumber) && phoneNumber.length < 10)
+    ) {
+      alert("올바른 정보를 입력해주세요");
       logEvent(analytics, "home_apply_submit_click_not_valid", {});
     } else {
-      let selectedCompanyList = companyList.filter((company) => checkedCompanyIds.has(company.id))
-        .map((company) => company.name)
+      let selectedCompanyList = companyList
+        .filter((company) => checkedCompanyIds.has(company.id))
+        .map((company) => company.name);
       console.log(selectedCompanyList);
       sendMessage(
         buildMessage(selectedCompanyList, selectedPositions, name, phoneNumber)
-      )
+      );
       logEvent(analytics, "home_apply_submit_click", {});
     }
-  }
+  };
 
   const handlePhoneNumberChange = (value: string) => {
-    const formattedValue = value.replace(/\D/g, '').replace(/(\d{3})(\d{3,4})(\d{4})/, '$1-$2-$3');
+    const formattedValue = value
+      .replace(/\D/g, "")
+      .replace(/(\d{3})(\d{3,4})(\d{4})/, "$1-$2-$3");
     setPhoneNumber(formattedValue);
   };
 
@@ -212,8 +223,8 @@ function ApplySection() {
     setSelectedPositions((prevSelectedOptions) =>
       prevSelectedOptions.includes(option)
         ? prevSelectedOptions.filter(
-          (selectedOption) => selectedOption !== option
-        )
+            (selectedOption) => selectedOption !== option
+          )
         : [...prevSelectedOptions, option]
     );
   };
@@ -221,41 +232,51 @@ function ApplySection() {
   const onCompanyClick = (company: any) => {
     const newSet = new Set(checkedCompanyIds);
     if (checkedCompanyIds.has(company.id)) {
-      newSet.delete(company.id)
+      newSet.delete(company.id);
     } else {
-      newSet.add(company.id)
+      newSet.add(company.id);
     }
-    console.log("click : " + company)
-    console.log(newSet)
-    setCheckedCompanyIds(newSet)
-  }
+    console.log("click : " + company);
+    console.log(newSet);
+    setCheckedCompanyIds(newSet);
+  };
 
   return (
     <Container id="applyForm">
-
       <Spacer height="48px" />
-      <StyledH1>다니고 싶은 회사를 {isMobile() ? <br/> : ""}모두 선택해주세요</StyledH1>
+      <StyledH1>
+        다니고 싶은 회사를 {isMobile() ? <br /> : ""}모두 선택해주세요
+      </StyledH1>
 
       <div className={styles.position_container}>
-        {
-          companyList.map((company) => {
-            const checked = checkedCompanyIds.has(company.id)
+        {companyList.map((company) => {
+          const checked = checkedCompanyIds.has(company.id);
 
-            return (
-              <label onClick={() => onCompanyClick(company)}>
-                <div className={`${styles.iconBox} ${checked ? styles.iconBoxChecked : ""}`}>
-                  <img src={company.src} alt="icon" className={styles.companyLogo} />
-                  <span><b>{company.name}</b></span>
-
-                </div>
-              </label>
-            )
-          })
-        }
+          return (
+            <label onClick={() => onCompanyClick(company)}>
+              <div
+                className={`${styles.iconBox} ${
+                  checked ? styles.iconBoxChecked : ""
+                }`}
+              >
+                <img
+                  src={company.src}
+                  alt="icon"
+                  className={styles.companyLogo}
+                />
+                <span>
+                  <b>{company.name}</b>
+                </span>
+              </div>
+            </label>
+          );
+        })}
       </div>
 
       <Spacer height="48px" />
-      <StyledH1>고민중인 포지션을 {isMobile() ? <br/> : ""}모두 골라주세요</StyledH1>
+      <StyledH1>
+        고민중인 포지션을 {isMobile() ? <br /> : ""}모두 골라주세요
+      </StyledH1>
 
       <div className={styles.position_container}>
         {positions.map((position) => (
@@ -289,7 +310,12 @@ function ApplySection() {
         />
       </InputContainer>
 
-      <input type="submit" className={styles.submit} onClick={() => onSubmitClick()} value="코치 리스트 조회하기" />
+      <input
+        type="submit"
+        className={styles.submit}
+        onClick={() => onSubmitClick()}
+        value="코치 리스트 조회하기"
+      />
     </Container>
   );
 }

@@ -1,13 +1,13 @@
 import styles from "./Header.module.scss";
 import headerlogo from "../../resources/logo_dark.png";
 import headerMenuImage from "../../resources/img_home_header_menu.png";
-import isMobile from "../../utils/CommonUtils";
+import { isMobile, mobileMediaQuery } from "../../utils/CommonUtils";
 import { APPLY_GUIDE_LINK, INTERVIEWER_GUIDE_LINK } from "../../Const";
 import { getAnalytics, logEvent } from "firebase/analytics";
 import { useState } from "react";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 
-const HeaderContainer = styled.header`
+const Container = styled.header`
   position: fixed;
   left: 0;
   top: 0;
@@ -16,17 +16,11 @@ const HeaderContainer = styled.header`
   background-color: #181818;
   z-index: 100;
 
-  /* 모바일 스타일 */
-  @media only screen and (max-width: 767px) {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
+  ${mobileMediaQuery(css`
     height: 107px;
     margin: 0;
     padding: 0 auto;
-    background-color: #181818;
-  }
+  `)}
 `;
 
 const MenuList = () => {
@@ -64,7 +58,7 @@ const Header = () => {
   const [menu, setMenu] = useState(false);
 
   return (
-    <HeaderContainer>
+    <Container>
       <div className={styles.contents}>
         <div>
           <img src={headerlogo} alt="logo" />
@@ -93,11 +87,10 @@ const Header = () => {
                 <MenuList />
               </ul>
             </nav>
-
           </div>
         )}
       </div>
-    </HeaderContainer>
+    </Container>
   );
 };
 

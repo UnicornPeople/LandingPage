@@ -18,7 +18,7 @@ const Container = styled.div`
   background-color: #181818;
 `;
 
-function Home() {
+function HomePage() {
   const location = useLocation();
 
   if (location.pathname === "/login/success") {
@@ -49,4 +49,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;

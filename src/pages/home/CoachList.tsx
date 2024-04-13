@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import { Spacer } from "../../components/Spacer";
 import { applyBoldStyle } from "../../utils/StringUtils";
 import ic_coach_1 from "../../resources/ic_coach_1.png";
@@ -10,8 +10,9 @@ import ic_coach_6 from "../../resources/ic_coach_6.png";
 import ic_coach_7 from "../../resources/ic_coach_7.png";
 import ic_coach_8 from "../../resources/ic_coach_8.png";
 import ic_coach_9 from "../../resources/ic_coach_9.png";
+import { mobileMediaQuery } from "../../utils/CommonUtils";
 
-const MainContainer = styled.div`
+const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -27,10 +28,9 @@ const Title = styled.div`
   white-space: pre-line;
   text-align: center;
 
-  /* 모바일 스타일 */
-  @media only screen and (max-width: 767px) {
-    font-size : 30px;
-  }
+  ${mobileMediaQuery(css`
+    font-size: 30px;
+  `)}
 `;
 
 const CoachParentContainer = styled.div`
@@ -39,10 +39,9 @@ const CoachParentContainer = styled.div`
   row-gap: 14px;
   column-gap: 10px;
 
-  /* 모바일 스타일 */
-  @media only screen and (max-width: 767px) {
+  ${mobileMediaQuery(css`
     grid-template-columns: 1fr 1fr;
-  }
+  `)}
 `;
 
 const CoachContainer = styled.div`
@@ -55,7 +54,7 @@ const CoachContainer = styled.div`
   div.title {
     font-size: 14px;
     color: #000000;
-    font-weight : 500;
+    font-weight: 500;
   }
 
   div.coach_info {
@@ -199,7 +198,7 @@ function CoachList() {
   ];
 
   return (
-    <MainContainer id="coachList">
+    <Container id="coachList">
       <Spacer height="48px" />
       <Title>{applyBoldStyle(title)}</Title>
       <Spacer height="48px" />
@@ -224,7 +223,7 @@ function CoachList() {
           </CoachContainer>
         ))}
       </CoachParentContainer>
-    </MainContainer>
+    </Container>
   );
 }
 

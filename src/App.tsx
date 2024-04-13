@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
-import Home from "./pages/home/Home";
+import HomePage from "./pages/home/HomePage";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import ogImg from "./resources/og.png";
@@ -17,6 +17,7 @@ function App() {
       window.location.href = "https://www.skillcoach.co.kr";
     }
   });
+  
   return (
     <>
       <GlobalStyle />
@@ -51,11 +52,11 @@ function App() {
       </Helmet>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login/success" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login/success" element={<HomePage />} />
           <Route path="/company" element={<CompanyPage />} />
           <Route path="/company/:key" element={<CompanyDetailPage />} />
-          <Route path="/*" element={<Home />} />
+          <Route path="/*" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
     </>
