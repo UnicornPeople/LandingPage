@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import HomePage from "./pages/home/HomePage";
 import { useEffect } from "react";
@@ -8,6 +8,7 @@ import ogImg from "./resources/og.png";
 import CompanyPage from "./pages/company/CompanyPage";
 import CompanyDetailPage from "./pages/company/CompanyDetailPage";
 import GlobalStyle from "./GlobalStyle";
+import Forms from "./pages/forms/Forms";
 
 function App() {
   useEffect(() => {
@@ -56,6 +57,16 @@ function App() {
           <Route path="/login/success" element={<HomePage />} />
           <Route path="/company" element={<CompanyPage />} />
           <Route path="/company/:key" element={<CompanyDetailPage />} />
+          {/* 
+          구글폼으로 redirect 되는 링크들 
+          - 백엔드 : https://skillcoach.co.kr/forms/backend
+          - 프론트엔드 : https://skillcoach.co.kr/forms/frontend
+          - 안드로이드 : https://skillcoach.co.kr/forms/android
+          - 데브옵스/보안 : https://skillcoach.co.kr/forms/devops
+          - 디자인 : https://skillcoach.co.kr/forms/uiux
+          - ios : https://skillcoach.co.kr/forms/ios
+          */}
+          <Route path='/forms/:name' element={<Forms />} /> 
           <Route path="/*" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
