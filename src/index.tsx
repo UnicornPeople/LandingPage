@@ -7,6 +7,12 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics, logEvent } from "firebase/analytics";
 import * as ChannelService from '@channel.io/channel-web-sdk-loader';
 import * as Sentry from "@sentry/react";
+import {
+  useLocation,
+  useNavigationType,
+  createRoutesFromChildren,
+  matchRoutes,
+} from "react-router-dom";
 
 ChannelService.loadScript()
 
@@ -35,6 +41,17 @@ logEvent(analytics, 'ref_utm_source', {
 
 Sentry.init({
   dsn: "http://0ced3b57de26986918913e5753ad224f@sentry.jspiner.io/3",
+  integrations: [
+    Sentry.browserTracingIntegration(),
+    Sentry.reactRouterV6BrowserTracingIntegration({
+      useEffect: React.useEffect,
+      useLocation,
+      useNavigationType,
+      createRoutesFromChildren,
+      matchRoutes,
+    }),
+  ],
+  tracesSampleRate: 1.0,
 });
 
 const container = document.getElementById('root') as HTMLElement;
