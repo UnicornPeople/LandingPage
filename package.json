@@ -1,76 +1,26 @@
 {
-  "name": "my-app",
+  "name": "skill",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@channel.io/channel-web-sdk-loader": "^1.1.7",
-    "@sentry/cli": "^2.31.0",
-    "@sentry/react": "^7.109.0",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.68",
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
-    "@types/react-helmet": "^6.1.11",
-    "firebase": "^10.7.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
-    "react-router-dom": "^6.21.3",
-    "react-scripts": "5.0.1",
-    "react-scroll": "^1.9.0",
-    "react-snap": "^1.23.0",
-    "sass": "^1.69.5",
-    "serve": "^14.2.1",
-    "styled-components": "^6.1.8",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
-  },
   "scripts": {
-    "predeploy": "npm run build",
-    "postbuild": "react-snap",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build && npm run sentry:sourcemaps",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org sentry --project skillcoach-frontend ./build && sentry-cli --url http://sentry.jspiner.io/ sourcemaps upload --org sentry --project skillcoach-frontend ./build"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@types/styled-components": "^5.1.34",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "styled-components": "^6.1.11"
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.34",
-    "gh-pages": "^6.1.1"
-  },
-  "reactSnap": {
-    "puppeteerArgs": [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-gpu"
-    ],
-    "ignorePageErrors": true,
-    "include": [
-      "/"
-    ],
-    "skipThirdPartyRequests": true,
-    "preconnectThirdParty": true
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "typescript": "^5"
   }
 }
