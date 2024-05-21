@@ -9,6 +9,7 @@ import naver_logo from "../../../public/company_list/naver_logo.png";
 import samsung_logo from "../../../public/company_list/samsung_logo.png";
 import woowahan_logo from "../../../public/company_list/woowahan_logo.png";
 import Image, { StaticImageData } from "next/image";
+import { RollingContainer } from "../_components/RollingContainer";
 
 const Container = styled.div`
   padding-top: 50px;
@@ -48,11 +49,6 @@ const Container = styled.div`
   }
 `;
 
-const RollingContainer = styled.div`
-    display : flex;
-    gap : 60px;
-`;
-
 function CompanyListSection() {
   const title1 = "스킬코치진 소속 기업 리스트";
   const title2 = "면접관의 마음은 **현직자가** 제일 잘 아니까.";
@@ -71,17 +67,9 @@ function CompanyListSection() {
 
   return (
     <Container>
-      <RollingContainer>
-        {images.map((image) => (
-          <Image src={image} alt="company" />
-        ))}
-      </RollingContainer>
+      <RollingContainer images={images} speed={20000} direction="right"/>
       <Spacer height="60px" />
-      <RollingContainer>
-        {images.map((image) => (
-          <Image src={image} alt="company" />
-        ))}
-      </RollingContainer>
+      <RollingContainer images={images} speed={20000} direction="left"/>
       <Spacer height="40px" />
       <div className="title_1">{title1}</div>
       <Spacer height="50px" />

@@ -1,5 +1,4 @@
 import { mobileMediaQuery } from "../_utils/CommonUtils";
-import { useState } from "react";
 import { css, styled } from "styled-components";
 import Image from "next/image";
 import top_menu_logo from "../../../public/top_menu_logo.svg";
@@ -97,8 +96,6 @@ const MenuList = () => {
 };
 
 function TopMenuSection() {
-  const [menu, setMenu] = useState(false);
-
   return (
     <Container>
       <Image className="logo" src={top_menu_logo} alt="logo" />

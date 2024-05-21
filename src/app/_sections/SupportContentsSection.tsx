@@ -22,6 +22,7 @@ const Container = styled.div`
     line-height: 130%; /* 52px */
     letter-spacing: -1.128px;
     white-space: pre-line;
+    text-align: center;
   }
 `;
 
@@ -61,7 +62,7 @@ const ContentContainer = styled.div`
     font-weight: 600;
     line-height: 140%; /* 33.6px */
     letter-spacing: 0.2px;
-    text-align : center;
+    text-align: center;
   }
 
   .subtitle {
@@ -76,8 +77,8 @@ const ContentContainer = styled.div`
 `;
 
 const ContentsContainer = styled.div`
-  display : flex;
-  gap : 24px;  
+  display: flex;
+  gap: 24px;
 `;
 
 class Content {

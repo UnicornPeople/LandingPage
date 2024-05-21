@@ -10,7 +10,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #9f9f9f;
+  background-color: #F9F9F9;
 `;
 
 const BizInfoContainer = styled.div`
@@ -24,7 +24,7 @@ const BizInfoContainer = styled.div`
   }
 
   .title {
-    color: #ffffff;
+    color: #303030;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -33,7 +33,7 @@ const BizInfoContainer = styled.div`
   }
 
   .subtitle {
-    color: #e2e0e0;
+    color: #303030;
     font-size: 10px;
     font-style: normal;
     font-weight: 300;
