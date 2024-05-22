@@ -1,6 +1,4 @@
 import { styled } from "styled-components";
-import BizInfoLogo from "../../../public/bizInfoLogo.svg";
-import Image from "next/image";
 import { Spacer } from "../_components/Spacer";
 
 const Container = styled.div`
@@ -91,8 +89,30 @@ class Content {
   }
 }
 
+const applyCustomUnderLine = (input: string) => {
+  const parts = input.split("**");
+
+  return parts.map((part, index) => {
+    return index % 2 === 0 ? (
+      <span key={index}>{part}</span>
+    ) : (
+      <span
+        key={index}
+        style={{
+          paddingLeft: "14px",
+          paddingRight: "14px",
+          borderTop: "11px solid rgba(0, 102, 255, 0.3)",
+          paddingTop: "8px",
+        }}
+      >
+        {part}
+      </span>
+    );
+  });
+};
+
 function SupportContentsSection() {
-  const title = "합격에 가까워질 수 있도록\n스킬코치가 도와드릴게요";
+  const title = "합격에 가까워질 수 있도록\n**스킬코치가 도와드릴게요**";
   const contentList = [
     new Content(
       "확실하게 인증된 현직자",
@@ -110,7 +130,7 @@ function SupportContentsSection() {
 
   return (
     <Container>
-      <div className="title">{title}</div>
+      <div className="title">{applyCustomUnderLine(title)}</div>
       <Spacer height="40px" />
       <ContentsContainer>
         {contentList.map((contents, index) => (
