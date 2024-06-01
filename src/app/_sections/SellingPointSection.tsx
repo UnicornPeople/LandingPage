@@ -122,7 +122,7 @@ function SellingPointSection() {
       <div className="title">{applyHighlightStyle(title)}</div>
       <Spacer height="40px" />
       {sellingPointList.map((sellingPoint, index) => (
-        <>
+        <div key ={index}>
           <SellingPointContainer>
             <div className="image_wrapper">
               <Image src={sellingPoint.image} alt="image_1" />
@@ -135,7 +135,7 @@ function SellingPointSection() {
             </div>
           </SellingPointContainer>
           {index != sellingPointList.length && <Spacer height="20px" />}
-        </>
+        </div>
       ))}
 
       <Spacer height="80px" />

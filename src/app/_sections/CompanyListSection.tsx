@@ -67,9 +67,9 @@ function CompanyListSection() {
 
   return (
     <Container>
-      <RollingContainer images={images} speed={20000} direction="right"/>
+      <RollingContainer images={images} speed={80000} direction="right"/>
       <Spacer height="60px" />
-      <RollingContainer images={images} speed={20000} direction="left"/>
+      <RollingContainer images={images} speed={80000} direction="left"/>
       <Spacer height="40px" />
       <div className="title_1">{title1}</div>
       <Spacer height="50px" />

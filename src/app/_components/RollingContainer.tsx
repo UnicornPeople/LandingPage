@@ -23,16 +23,16 @@ const Container = styled.div<{
   mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
 `;
 
-const ScrollerInner = styled.div<{
-  animated?: boolean;
+interface ScrollInnerProps {
   speed: number;
   direction?: "left" | "right";
-}>`
+}
+
+const ScrollerInner = styled.div<ScrollInnerProps>`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 60px;
-
   ${({ direction }) =>
     direction === "right" &&
     css`
@@ -45,14 +45,10 @@ const ScrollerInner = styled.div<{
       --_animation-direction: forwards;
     `}
 
-  ${({ animated, speed }) =>
-    animated &&
-    css`
-      width: max-content;
-      flex-wrap: nowrap;
-      animation: ${scroll} ${speed}ms var(--_animation-direction, forwards)
-        linear infinite;
-    `}
+    width: max-content;
+  flex-wrap: nowrap;
+  animation: ${scroll} ${(p) => p.speed}ms var(--_animation-direction, forwards)
+    linear infinite;
 `;
 
 interface RollingContainerProps {
@@ -68,18 +64,18 @@ export function RollingContainer({
 }: RollingContainerProps) {
   return (
     <Container>
-      <ScrollerInner animated speed={speed} direction={direction}>
+      <ScrollerInner speed={speed} direction={direction}>
         {images.map((image, index) => (
-          <Image src={image} alt={"image" + index} />
+          <Image src={image} alt={"image" + index} key={"image1" + index} />
         ))}
         {images.map((image, index) => (
-          <Image src={image} alt={"image" + index} />
+          <Image src={image} alt={"image" + index} key={"image2" + index} />
         ))}
         {images.map((image, index) => (
-          <Image src={image} alt={"image" + index} />
+          <Image src={image} alt={"image" + index} key={"image3" + index} />
         ))}
         {images.map((image, index) => (
-          <Image src={image} alt={"image" + index} />
+          <Image src={image} alt={"image" + index} key={"image4" + index} />
         ))}
       </ScrollerInner>
     </Container>

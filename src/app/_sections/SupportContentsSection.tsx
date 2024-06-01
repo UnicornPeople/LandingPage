@@ -134,7 +134,7 @@ function SupportContentsSection() {
       <Spacer height="40px" />
       <ContentsContainer>
         {contentList.map((contents, index) => (
-          <ContentContainer>
+          <ContentContainer key={index}>
             <div className="number">
               <span>{index + 1}</span>
             </div>
