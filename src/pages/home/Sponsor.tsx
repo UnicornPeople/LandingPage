@@ -39,14 +39,11 @@ function Sponsor() {
   return (
     <Container>
       <div className="block_title">
-        {applyBoldStyle("**SW Maestro**와 **한국정보산업연합회**가")}
-        <br />
-        스킬코치와 함께합니다.
+        {applyBoldStyle("**SW Maestro**가 스킬코치와 함께합니다.")}
       </div>
 
       <div className="block_img_container">
         <img src={ic_swmaestro} height="30" />
-        <img src={ic_fkii} height="30" />
       </div>
     </Container>
   );
